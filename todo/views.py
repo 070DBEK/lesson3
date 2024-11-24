@@ -3,43 +3,44 @@ from django.http import HttpResponse
 def task_create(request):
     html = """
 <!DOCTYPE html>
-<html lang="uz">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Yangi Vazifa Yaratish</title>
-    <style>
-        /* Ваши стили */
-    </style>
-</head>
+    <title>Создать новую задачу</title>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
     <h1>Yangi vazifa yaratish</h1>
-    <form action="/create-task" method="POST">
-        <label for="vazifa_nomi">Vazifa nomi:</label>
-        <input type="text" id="vazifa_nomi" name="vazifa_nomi" required>
+    <form>
+        <label for="taskName">Vazifa nomi:</label>
+        <input type="text" id="taskName" name="taskName">
+
         <br>
         <br>
-        <label for="tavsif">Tavsif:</label>
-        <textarea id="tavsif" name="tavsif" required></textarea>
+
+        <label for="description">Tavsif:</label>
+        <textarea id="description" name="description"></textarea>
+        
         <br>
         <br>
-        <label for="muddat">Muddati:</label>
-        <input type="datetime-local" id="muddat" name="muddat" required>
+        
+        <label for="deadline">Vazifa muddati:</label>
+        <input type="date" id="deadline" name="deadline">
+        
         <br>
         <br>
-       <label for="muhimlik_darajasi">Muhimlik darajasi:</label>
-        <select id="muhimlik_darajasi" name="muhimlik_darajasi">
-            <option value="past">Past</option>
-            <option value="orta">O'rta</option>
-            <option value="yuqori">Yuqori</option>
+
+        <label for="model">Muhimlilik darajasi:</label>
+        <select id="model" name="model">
+            <option value="model1">Past</option>
+            <option value="model2">O'rta</option>
+            <option value="model2">Yuqori</option>
         </select>
+    
         <br>
         <br>
-        <button type="submit">Vazifani saqlash</button>
+
+        <button type="submit" >Yaratish</button>
     </form>
-    <script>
-        // Ваш JavaScript код для валидации и других функций
-    </script>
-</body>
+    <script src="script.js"></script> </body>
 </html>
 """
     return HttpResponse(html)
